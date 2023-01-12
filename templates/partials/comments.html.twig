@@ -1,0 +1,22 @@
+{% if theme_config.cusdis.domain %}
+<h2 class="left">{{ theme_config.cusdis.title|raw }}</h2>
+    {% if page.header.disableComments %}
+        <p class="left">{{ theme_config.cusdis.disable_comments|raw }}</p> 
+    {% else %}
+        {% if theme_config.cusdis.lang %}
+        <script>{{ theme_config.cusdis.lang|raw }}</script>
+        {% endif %}
+                <div id="cusdis_thread"
+                data-host="https://{{ theme_config.cusdis.domain }}"
+                data-app-id="{{ theme_config.cusdis.app_id }}"
+                data-page-id="{{ page.slug }}"
+                data-page-url="{{ page.url(true) }}"
+                data-page-title="{{ page.title }}"
+                data-theme="auto"
+                ></div>
+                <script async defer src="https://{{ theme_config.cusdis.domain }}/js/cusdis.es.js"></script>
+                {% if theme_config.cusdis.legal_info %}
+                <p class="annotation">{{ theme_config.cusdis.legal_info|raw }}</p>
+                {% endif %}
+    {% endif %}
+{% endif %}
