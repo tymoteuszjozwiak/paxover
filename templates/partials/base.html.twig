@@ -1,0 +1,117 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive ?: grav.language.getDefault)|e }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if page_title %}{{ page_title|e }} | {% elseif header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if site.author.name %}
+	<meta name="author" content="{{ site.author.name }}, {{ site.author.email }}" />
+	{% endif %}
+    {% if theme_config.blog.slug ~ '/' in page.url %}
+	<meta name="description" content="{{ page.summary | striptags }}">
+	{% else %}
+	<meta name="description" content="{{ site.metadata.description }}">
+	{% endif %}
+
+	{% if page.taxonomy.tag %}
+	<meta name="keywords" content="{% for tag in page.taxonomy.tag %}{{tag}}, {% endfor %}{{ site.metadata.keywords }}" />
+	{% else %}
+	<meta name="keywords" content="{{ site.metadata.keywords }}" />
+	{% endif %}
+
+
+	<meta name="twitter:card" content="summary"  />
+	{% if header.title %}
+	<meta name="twitter:title" content="{{ header.title }} | {{ site.title }}" />
+	{% else %}
+	<meta name="twitter:title" content="{{ site.title }}" />
+	{% endif %}
+	{% if theme_config.blog.slug ~ '/' in page.url %}
+	<meta name="twitter:description" content="{{ page.summary | striptags }}" />
+	{% else %}
+	<meta name="twitter:description" content="{{ site.metadata.description }}" />
+	{% endif %}
+	{% if hero_image.url %}
+	<meta name="twitter:image" content="{{ hero_image.url|raw }}" />
+	{% else %}
+	<meta name="twitter:image" content="{{ url('theme://images/logo.png') }}" />
+	{% endif %}
+	{% if page.header.link %}
+	<meta name="twitter:url" content="{{ page.header.link }}" />
+	{% else %}
+	<meta name="twitter:url" content="{{ page.url(true) }}" />
+	{% endif %}
+
+	
+	{% if header.title %}
+	<meta property="og:title" content="{{ header.title }}" />
+	{% else %}
+	<meta property="og:title" content="{{ site.title }}" />
+	{% endif %}
+	{% if theme_config.blog.slug ~ '/' in page.url %}
+	<meta name="og:description" content="{{ page.summary | striptags }}" />
+	{% else %}
+	<meta name="og:description" content="{{ site.metadata.description }}" />
+	{% endif %}
+	{% if theme_config.blog.slug ~ '/' in page.url %}
+	<meta property="og:type" content="article" />
+	{% else %}
+	<meta property="og:type" content="website" />
+	{% endif %}
+	{% if page.header.link %}
+	<meta property="og:url" content="{{ page.header.link }}" />
+	{% else %}
+	<meta property="og:url" content="{{ page.url(true )}}" />
+	{% endif %}
+	{% if hero_image.url %}
+	<meta property="og:image" content="{{ hero_image.url|raw }}" />
+	{% else %}
+	<meta property="og:image" content="{{ url('theme://images/logo.png') }}" />
+	{% endif %}
+	<meta name="robots" content="index, follow" />
+
+	<link rel="alternate" href="/rss" title="{{ site.title }}" type="application/atom+xml"/>
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon-16x16.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="canonical" href="{{ page.url(true, true)|e }}" />
+{% endblock head %}
+
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/style.css') %}
+        {% do assets.addCss('theme://fonts/opensans/local.css') %}
+        {% do assets.addCss('theme://fonts/sourcecodepro/local.css') %}
+    {% endblock %}
+
+    {{ assets.css() | raw }}
+
+</head>
+<body id="top">
+
+{% block header %}
+    <div class="navigation">
+            {% block header_navigation %}
+            <nav>
+                {% include 'partials/navigation.html.twig' %}
+            </nav>
+            {% endblock %}
+    </div>
+{% endblock %}
+
+{% block body %}
+        <div class="content">
+        {% block content %}{% endblock %}
+        </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <footer>
+            {% include 'partials/footer.html.twig' %}
+        </footer>
+    </div>
+{% endblock %}
+</body>
+</html>

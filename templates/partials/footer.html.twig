@@ -1,0 +1,10 @@
+{% if theme_config.footer.year == "now"|date("Y") %}
+    {% set year = "now"|date("Y") %}
+{% else %}
+    {% set year = theme_config.footer.year ~ "-" ~ "now"|date("y") %}
+{% endif %}    
+<span class="footer-copyright">&copy; {{ year }}</span>
+<span class="footer-link">
+    <a href="{{ theme_config.footer.url }}">{{ theme_config.footer.title }}</a>
+</span>
+{{ theme_config.analytics|raw }}

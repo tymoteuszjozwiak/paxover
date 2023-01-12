@@ -1,0 +1,20 @@
+{% extends 'partials/base.html.twig' %}
+ {% set hero_image = page.media.images|first %}
+{% block content %}
+        <div class="profile">
+            <img class="img-profile" src="{{ hero_image.url|raw }}" />
+        </div>
+        <div class="about">
+            {{ page.content | raw }}
+        </div>       
+        <div class="social">
+    {% for button in theme_config.social_buttons %}
+          <a class="btn {{ button.class }}" target="_blank" rel="me nofollow noopener noreferrer" href="{{ button.link }}" title="{{ button.title_en }}">{{ button.name }}</a>
+    {% endfor %}
+    </div>
+    <div class="contact">
+        <p>{{ theme_config.contact_en|raw }}</p>
+    </div>
+      <p class="annotation"><a href="/">{{ theme_config.lang_title_en }}</a></p>
+    </div>
+{% endblock %}

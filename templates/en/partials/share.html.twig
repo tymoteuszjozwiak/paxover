@@ -1,0 +1,8 @@
+<div class="left">
+    <h2>{{ theme_config.blog.share_en|raw }}</h2>
+    <div class="share">
+      {% for button in theme_config.blog.share_buttons %}
+            <a class="btn {{ button.class }}" target="_blank" rel="nofollow noopener noreferrer" href="{{ button.link }}?{{ button.url_param }}={{ page.url(true) }}" title="{{ button.title_en }}">{{ button.name }}</a>
+      {% endfor %}
+    </div>
+</div>

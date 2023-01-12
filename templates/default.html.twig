@@ -1,0 +1,11 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% if page.header.left %}
+        <div class="left">
+        {{ page.content | raw }}
+        </div> 
+    {% else %}
+        {{ page.content|raw }}
+    {% endif %}
+{% endblock %}
