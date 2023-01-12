@@ -4,11 +4,11 @@ Grav CMS theme for my personal website
 
 ## License info
 
-Paxover is not basically designed for public use (I developed it for my personal needs), but it's not prohibited. You must be aware that Paxover doesn't work like popular Grav themes, where you can configure everything at settings; some pages are created rigidly in templates (of course, you can modify them). It's distributed under the CC BY-NC-SA license, which means you can distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. [Read full license](https://github.com/tymoteuszjozwiak/paxover/blob/main/LICENSE) | [CC BY-NC-SA website](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Paxover is not basically designed for public use (I developed it for my personal needs), but it's not prohibited. You must be aware that Paxover doesn't work like popular Grav themes, where you can configure everything at settings; some pages are created rigidly in templates (of course, you can modify them). It's distributed under the CC BY-NC-SA license, which means you can distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. [Read full license](https://codeberg.org/tymoteuszjozwiak/paxover/src/branch/master/LICENSE) | [CC BY-NC-SA website](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Installation
 
-GPM installation is not supported. To install Paxover, [download the zip version of this repository](https://github.com/tymoteuszjozwiak/paxover/archive/refs/heads/main.zip) and unzip it under `/your-site-path/user/themes`. Then, rename the folder to `paxover`. You'll need only to enable Paxover in your Admin Panel settings.
+GPM installation is not supported. To install Paxover, [download the zip version of this repository](https://codeberg.org/tymoteuszjozwiak/paxover/archive/master.zip) and unzip it under `/your-site-path/user/themes`. Then, rename the folder to `paxover`. You'll need only to enable Paxover in your Admin Panel settings.
 
 ## Custom images
 
