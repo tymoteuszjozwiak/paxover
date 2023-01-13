@@ -2,7 +2,7 @@
 
 <a class="card-link" href="{{ page.url }}">
             <article class="blog-card">
-            <img alt="{{ hero_image.meta.alt|striptags }}" src="{{ hero_image.cropZoom(350,250).url|raw }}" class="post-image">
+            {{ hero_image.html|absolute_url|raw }}
               <div class="post-details">
                 <h4 class="post-meta">{{ page.date|date("d.m.Y") }}</h4>
                 <h2 class="post-title">{{ page.title }}</h2>
