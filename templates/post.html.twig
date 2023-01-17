@@ -5,7 +5,7 @@
     <article class="post">
         <h2>{{ page.title }}</h2>
         <div class="meta">
-        <p>{{ page.date|date("d.m.Y H:i") }}</p>
+        <p>{{ page.date|date("d.m.Y H:i") }} {% if config.plugins.readingtime.enabled %} | {{ page.content|readingtime }} {% endif %}</p>
         <p>Tagi: {% for tag in page.taxonomy.tag %}<a href="{{ theme_config.blog.slug }}/tag:{{tag}}">{{ tag }}</a>&ensp;{% endfor %}</p>
         </div>
         {{ page.content | raw }}
